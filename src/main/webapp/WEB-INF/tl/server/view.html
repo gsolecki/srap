@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
+<head>
+<title>server/view</title>
+</head>
+<body>
+
+	<div layout:fragment="breadcrumb">
+		<ol class="breadcrumb">
+			<li><a th:href="@{/}">Home</a></li>
+			<li><a th:href="@{/(list)}">Servers</a></li>
+			<li th:text="'Server #' + ${server.id}">Server #123</li>
+		</ol>
+	</div>
+	
+	<h1 layout:fragment="header">Servers : Details</h1>
+	
+	<div layout:fragment="content" class="container">
+		<div class="alert alert-success" th:if="${globalServer}" th:text="${globalServer}">Some Success server</div>
+		<dl>
+			<dt>ID</dt>
+			<dd id="id" th:text="${server.id}">123</dd>
+			<dt>Date</dt>
+			<dd id="created" th:text="${#calendars.format(server.created)}">July 11, 2012 2:17:16 PM CDT</dd>
+			<dt>Name</dt>
+			<dd id="name" th:text="${server.name}">Server Name</dd>
+			<dt>Server</dt>
+			<dd id="endpoint" th:text="${server.endpoint}">http://server.com/endpoint</dd>
+		</dl>
+	</div>
+</body>
+</html>

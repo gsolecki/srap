@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
+<head>
+<title>server/list</title>
+</head>
+<body>
+	<div layout:fragment="breadcrumb">
+		<ol class="breadcrumb">
+			<li><a th:href="@{/}">Home</a></li>
+			<li><a th:href="@{/(list)}">Servers</a></li>
+		</ol>
+	</div>
+
+	<h1 layout:fragment="header">
+		Servers : List <a href="form.html" th:href="@{/(form)}" class="btn btn-success glyphicon glyphicon-plus"></a>
+	</h1>
+
+	<div layout:fragment="content" class="container">
+		<table class="table table-bordered table-striped table-hover">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>Name</td>
+					<td>Endpoint</td>
+					<td>Created</td>
+				</tr>
+			</thead>
+			<tbody data-link="row" class="rowlink">
+				<tr th:if="${servers.empty}">
+					<td colspan="4">No servers</td>
+				</tr>
+				<tr th:each="server : ${servers}">
+					<td><a href="view.html" th:href="@{'/' + ${server.id}}" th:text="${server.id}">1</a></td>
+					<td th:text="${server.name}">Server</td>
+					<td class="rowlink-skip"><a href="#" th:href="${server.endpoint}" th:text="${server.endpoint}">http://localhost:8080/server</a></td>
+					<td th:text="${#calendars.format(server.created)}">July 11, 2012 2:17:16 PM CDT</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+</body>
+</html>

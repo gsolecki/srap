@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
+
+<head>
+<title>Messages : View all</title>
+</head>
+
+<body>
+	<h1 layout:fragment="header">OAuth Result</h1>
+	<div layout:fragment="content" class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<table>
+					<thead>
+						<tr>
+							<th>Code 222</th>
+							<th>State</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td th:text="${param.code[0]}">code</td>
+							<td th:text="${param.state[0]}">state</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
