@@ -21,12 +21,12 @@ public class AbstractJpaRepository<T, ID extends Serializable> implements JpaRep
 	}
 
 	@Override
-	public T findOne(Serializable id) {
+	public T findOne(ID id) {
 		throw new RuntimeException("Not Yet Implemented.");
 	}
 
 	@Override
-	public boolean exists(Serializable id) {
+	public boolean exists(ID id) {
 		throw new RuntimeException("Not Yet Implemented.");
 	}
 
@@ -36,14 +36,13 @@ public class AbstractJpaRepository<T, ID extends Serializable> implements JpaRep
 	}
 
 	@Override
-	public void delete(Serializable id) {
+	public void delete(ID id) {
 		throw new RuntimeException("Not Yet Implemented.");
 	}
 
 	@Override
 	public void delete(T entity) {
 		throw new RuntimeException("Not Yet Implemented.");
-
 	}
 
 	@Override
@@ -89,7 +88,6 @@ public class AbstractJpaRepository<T, ID extends Serializable> implements JpaRep
 	@Override
 	public void deleteInBatch(Iterable<T> entities) {
 		throw new RuntimeException("Not Yet Implemented.");
-
 	}
 
 	@Override
@@ -98,8 +96,7 @@ public class AbstractJpaRepository<T, ID extends Serializable> implements JpaRep
 	}
 
 	@Override
-	public T getOne(Serializable id) {
+	public T getOne(ID id) {
 		throw new RuntimeException("Not Yet Implemented.");
 	}
-
 }
