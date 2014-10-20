@@ -40,19 +40,19 @@ public class ServerControllerWebTests {
 	@Test
 	public void testHome() throws Exception {
 		mockMvc.perform(get("/")).andExpect(status().isOk())
-		.andExpect(content().string(containsString("<title>Servers")));
+		.andExpect(content().string(containsString("<title>server")));
 	}
 
 	@Test
 	public void testCreate() throws Exception {
-		mockMvc.perform(post("/").param("text", "FOO text").param("summary", "FOO"))
+		mockMvc.perform(post("/").param("name", "Server name").param("endpoint", "http://server/com/endpoint"))
 		.andExpect(status().isMovedTemporarily())
 		.andExpect(header().string("location", RegexMatcher.matches("/[0-9]+")));
 	}
 
 	@Test
 	public void testCreateValidation() throws Exception {
-		mockMvc.perform(post("/").param("text", "").param("summary", ""))
+		mockMvc.perform(post("/").param("name", "").param("endpoint", ""))
 		.andExpect(status().isOk())
 		.andExpect(content().string(containsString("is required")));
 	}
