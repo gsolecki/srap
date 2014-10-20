@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,7 +31,7 @@ public class ServerTest {
 
 		Collection<Object[]> data = new ArrayList<>();
 
-		List<String> lines = FileUtils.readLines(ResourceUtils.getFile("classpath:" + ServerTest.class.getPackage().getName().replaceAll("\\.", "/") + "/url_list.csv"));
+		List<String> lines = IOUtils.readLines(ResourceUtils.getURL("classpath:" + ServerTest.class.getPackage().getName().replaceAll("\\.", "/") + "/url_list.csv").openStream());
 		for (String line : lines) {
 			int index = line.indexOf(",");
 			data.add(new Object[] { line.substring(index + 1, line.length()), Boolean.valueOf(line.substring(0, index))});
