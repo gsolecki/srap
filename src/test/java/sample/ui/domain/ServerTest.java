@@ -31,7 +31,7 @@ public class ServerTest {
 
 		Collection<Object[]> data = new ArrayList<>();
 
-		List<String> lines = IOUtils.readLines(ResourceUtils.getURL("classpath:" + ServerTest.class.getPackage().getName().replaceAll("\\.", "/") + "/url_list.csv").openStream());
+		List<String> lines = IOUtils.readLines(ResourceUtils.getURL("classpath:url_list.csv").openStream());
 		for (String line : lines) {
 			int index = line.indexOf(",");
 			data.add(new Object[] { line.substring(index + 1, line.length()), Boolean.valueOf(line.substring(0, index))});
