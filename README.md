@@ -2,5 +2,5 @@ srap
 ====
 
 <br/>
-[![Build Status](https://api.travis-ci.org/gsolecki/srap.png)](https://api.travis-ci.org/gsolecki/srap)
+[![Build Status](https://api.travis-ci.org/gsolecki/srap.png)](https://travis-ci.org/gsolecki/srap)
 <br/>
