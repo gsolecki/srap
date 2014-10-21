@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package sample.ui.mvc;
+package sample.ui.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

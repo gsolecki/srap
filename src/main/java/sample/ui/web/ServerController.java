@@ -1,4 +1,4 @@
-package sample.ui.mvc;
+package sample.ui.web;
 
 import javax.validation.Valid;
 
