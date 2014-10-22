@@ -44,8 +44,14 @@ public class SampleWebUiApplicationTests {
 		map.set("name", "Server Name");
 		map.set("endpoint", "http://server.com/endpoint");
 		URI location = new TestRestTemplate().postForLocation("http://localhost:" + port, map);
-		System.out.println(location);
 		assertTrue("Wrong location:\n" + location, location.toString().contains("localhost:" + port));
+	}
+
+	@Test
+	public void testForm() throws Exception {
+		ResponseEntity<String> entity = new TestRestTemplate().getForEntity("http://localhost:" + port + "/?form", String.class);
+		assertEquals(HttpStatus.OK, entity.getStatusCode());
+		assertTrue("Wrong body (title doesn't match):\n" + entity.getBody(), entity.getBody().contains("<title>server/form</title>"));
 	}
 
 	@Test
