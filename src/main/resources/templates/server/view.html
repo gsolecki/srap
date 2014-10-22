@@ -25,7 +25,7 @@
 			<dt>Name</dt>
 			<dd id="name" th:text="${server.name}">Server Name</dd>
 			<dt>Server</dt>
-			<dd id="endpoint" th:text="${server.endpoint}">http://server.com/endpoint</dd>
+			<dd id="endpoint"><a th:href="${server.endpoint}" th:text="${server.endpoint}">http://server.com/endpoint</a></dd>
 		</dl>
 	</div>
 </body>
