@@ -1,4 +1,4 @@
-package sample.ui;
+package sample.ui.web.controller;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -22,10 +22,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import sample.ui.Application;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = WebApp.class)
-public class ServerControllerWebTests {
+@ContextConfiguration(classes = {Application.class})
+public class ServerControllerTest {
 
 	@Autowired
 	private WebApplicationContext wac;
@@ -39,7 +41,8 @@ public class ServerControllerWebTests {
 
 	@Test
 	public void testHome() throws Exception {
-		mockMvc.perform(get("/")).andExpect(status().isOk())
+		mockMvc.perform(get("/"))
+		.andExpect(status().isOk())
 		.andExpect(content().string(containsString("<title>server")));
 	}
 

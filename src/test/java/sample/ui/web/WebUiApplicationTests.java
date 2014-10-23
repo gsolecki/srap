@@ -1,4 +1,4 @@
-package sample.ui;
+package sample.ui.web;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -20,12 +20,14 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
+import sample.ui.Application;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = WebApp.class)
+@SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 @IntegrationTest("server.port:0")
 @DirtiesContext
-public class SampleWebUiApplicationTests {
+public class WebUiApplicationTests {
 
 	@Value("${local.server.port}")
 	private int port;
