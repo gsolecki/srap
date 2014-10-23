@@ -8,12 +8,12 @@ public class Srap extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		application.sources(Srap.class);
+		application.sources(Application.class);
 		return super.configure(application);
 	}
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(Srap.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

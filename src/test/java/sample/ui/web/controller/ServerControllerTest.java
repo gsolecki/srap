@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.regex.Pattern;
 
 import org.hamcrest.Description;
+import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.Before;
 import org.junit.Test;
@@ -67,7 +68,7 @@ public class ServerControllerTest {
 			this.regex = regex;
 		}
 
-		public static org.hamcrest.Matcher<java.lang.String> matches(String regex) {
+		public static Matcher<String> matches(String regex) {
 			return new RegexMatcher(regex);
 		}
 
@@ -83,8 +84,7 @@ public class ServerControllerTest {
 
 		@Override
 		public void describeTo(Description description) {
-			description.appendText("a string that matches regex: ")
-			.appendText(regex);
+			description.appendText("a string that matches regex: ").appendText(regex);
 		}
 	}
 }
